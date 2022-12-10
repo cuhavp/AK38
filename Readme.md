@@ -1,4 +1,4 @@
-Selenium Java Basic AK38
+Selenium Java Basic AK38 with maven project
 
 ## Setup
 1. Required JDK 11+
@@ -55,6 +55,10 @@ mvn clean test -Dtestsuite=todo-mvc.testplan.xml
 │           └── characters.json
 └── todo-mvc.testplan.xml
 ```
+*Suffix Rule*
+- **Page.java --> define **page object class** and under [pages](/src/test/java/com/tvn/pages) package
+- **Test.java --> define **test cases class**
+- **.testplan.xml --> define **test plan to execute**
 
 ## Github Action Report
 ![Report](assets/githubActionReport.png)

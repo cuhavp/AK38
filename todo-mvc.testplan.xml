@@ -6,18 +6,18 @@
             <class name="com.tvn.elements.TodoTest"/>
         </classes>
     </test>
-    <test name="Regression on Firefox Browser">
-        <parameter name="browser"  value="firefox"/>
-        <parameter name="dataset"  value="2"/>
-        <classes>
-            <class name="com.tvn.elements.TodoTest"/>
-        </classes>
-    </test>
-    <test name="Regression on Safari Browser">
-        <parameter name="browser"  value="safari"/>
-        <parameter name="dataset"  value="3"/>
-        <classes>
-            <class name="com.tvn.elements.TodoTest"/>
-        </classes>
-    </test>
+<!--    <test name="Regression on Firefox Browser">-->
+<!--        <parameter name="browser"  value="firefox"/>-->
+<!--        <parameter name="dataset"  value="2"/>-->
+<!--        <classes>-->
+<!--            <class name="com.tvn.elements.TodoTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Regression on Safari Browser">-->
+<!--        <parameter name="browser"  value="safari"/>-->
+<!--        <parameter name="dataset"  value="3"/>-->
+<!--        <classes>-->
+<!--            <class name="com.tvn.elements.TodoTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

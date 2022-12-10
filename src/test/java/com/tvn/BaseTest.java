@@ -5,7 +5,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
@@ -55,9 +57,19 @@ public class BaseTest {
 
     private WebDriver launchBrowser(String name){
         switch (name){
-            case "firefox": return new FirefoxDriver();
-            case "safari":return new SafariDriver();
-            default: return new ChromeDriver();
+            case "firefox": {
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.setHeadless(true);
+                return new FirefoxDriver(firefoxOptions);
+            }
+            case "safari":{
+                return new SafariDriver();
+            }
+            default: {
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.setHeadless(true);
+                return new ChromeDriver(chromeOptions);
+            }
         }
     }
 

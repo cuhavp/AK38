@@ -17,6 +17,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
+
     - name: Install Chrome
       uses: browser-actions/setup-chrome@latest
 

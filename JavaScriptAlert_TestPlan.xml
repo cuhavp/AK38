@@ -1,0 +1,8 @@
+<suite name="Page Object Model">
+    <test name="day8">
+        <classes>
+            <class name="com.tvn.elements.LoginTest"/>
+            <class name="com.tvn.BodyMassIndexTest"/>
+        </classes>
+    </test>
+</suite>

@@ -20,6 +20,9 @@ jobs:
     - name: Install Chrome
       uses: browser-actions/setup-chrome@latest
 
+    - name: Install Firefox
+      uses: browser-actions/setup-firefox@latest
+
     - name: Run Test
       run: mvn clean test -Dtestsuite=todo-mvc.testplan.xml
 

@@ -1,6 +1,8 @@
 package com.tvn;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +23,7 @@ import java.io.IOException;
 import java.time.Duration;
 
 public class BaseTest {
+    private static final Logger LOG = LogManager.getLogger(BaseTest.class);
     protected WebDriver driver;
     protected WebDriverWait wait;
     final int TIME_OUT_IN_SECONDS = 20;
@@ -28,14 +31,17 @@ public class BaseTest {
     @BeforeClass(alwaysRun = true)
     @Parameters({"browser"})
     protected void setUp(String browser) {
+        LOG.info("Start "+browser);
         driver = launchBrowser(browser);
         wait = new WebDriverWait(driver, Duration.ofSeconds(TIME_OUT_IN_SECONDS));
     }
 
     @AfterMethod(alwaysRun = true)
     protected void captureScreenShot(ITestResult testResult) {
+        String methodName = testResult.getMethod().getMethodName();
+
         if (!testResult.isSuccess()) {
-            String methodName = testResult.getMethod().getMethodName();
+            LOG.error("Test "+methodName+" FAIL");
             long currentTime = System.currentTimeMillis();
             TakesScreenshot scrShot = ((TakesScreenshot) driver);
             File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
@@ -43,13 +49,16 @@ public class BaseTest {
             try {
                 FileUtils.copyFile(SrcFile, DestFile);
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error(e.getStackTrace());
             }
+        }else {
+            LOG.info("Test "+methodName+" PASS");
         }
     }
 
     @AfterClass(alwaysRun = true)
     protected void tearDown() {
+        LOG.info("Close Browser");
         if (driver != null) {
             driver.quit();
         }

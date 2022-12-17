@@ -3,8 +3,8 @@ name: Run Selenium Test with Maven on CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    paths-ignore: [ '**.md' ]
+
 
 jobs:
   build:
@@ -34,4 +34,3 @@ jobs:
         name: Test Results
         path: ${{ github.workspace }}/target/surefire-reports/TEST-*.xml
         reporter: java-junit
-        java-version: 11

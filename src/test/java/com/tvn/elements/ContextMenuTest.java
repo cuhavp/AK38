@@ -14,7 +14,5 @@ public class ContextMenuTest {
 
         Actions mouse = new Actions(driver);
         mouse.contextClick(driver.findElement(By.id("hot-spot"))).perform();
-
-
     }
 }
